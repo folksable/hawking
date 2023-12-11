@@ -50,6 +50,20 @@ public class HawkingConfiguration {
     private String timeZone = "";
     private int maxParseDate= 0;
 
+
+    public HawkingConfiguration(int fiscalYearStart, int fiscalYearEnd, String timeZone) {
+        /// assert fiscalYearStart <= 12 && fiscalYearStart >= 1;
+        if(fiscalYearStart > 12 || fiscalYearStart < 1){
+            throw new IllegalArgumentException("FiscalYearStart start should be between 1 and 12");
+        }
+        if(fiscalYearEnd > 12 || fiscalYearEnd < 1){
+            throw new IllegalArgumentException("FiscalYearEnd start should be between 1 and 12");
+        }
+        this.fiscalYearStart = fiscalYearStart;
+        this.fiscalYearEnd = fiscalYearEnd;
+        this.timeZone = timeZone;
+    }
+
     /**
      * @return the year range
      */

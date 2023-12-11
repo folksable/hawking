@@ -17,10 +17,7 @@ class HawkingDemo {
   public static void main(String[] args) throws Exception {
     HawkingTimeParser parser = new HawkingTimeParser();
     String inputText = "Good morning, Have a nice day. Shall we meet on December 20 ?";
-    HawkingConfiguration hawkingConfiguration = new HawkingConfiguration();
-    hawkingConfiguration.setFiscalYearStart(2);
-    hawkingConfiguration.setFiscalYearEnd(1);
-    hawkingConfiguration.setTimeZone("IST");
+    HawkingConfiguration hawkingConfiguration = new HawkingConfiguration(2, 1, "IST");
     Date referenceDate = new Date();
     DatesFound datesFound = null;
     try {
@@ -30,7 +27,7 @@ class HawkingDemo {
       e.printStackTrace();
     }
     assert datesFound != null;
-    LOGGER.info("DATES FOUND ::  "+ datesFound.toString());
+    System.out.println("DATES FOUND ::  "+ datesFound.toString());
   }
 
 }

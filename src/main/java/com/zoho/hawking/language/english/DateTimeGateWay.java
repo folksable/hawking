@@ -267,8 +267,7 @@ public class DateTimeGateWay {
         relationDateTimePropertiesTwo.setDateGroup(dateGroupPairTwo.getRight());
       } else {
         if(relationDateTimePropertiesOne.getParserOutput().getIsTimeZonePresent()){
-          HawkingConfiguration configuration= new HawkingConfiguration();
-          configuration.setTimeZone("GMT"+relationDateTimePropertiesOne.getParserOutput().getTimezoneOffset()); //No I18N
+          HawkingConfiguration configuration= new HawkingConfiguration(4,3,"GMT"+relationDateTimePropertiesOne.getParserOutput().getTimezoneOffset() );
           DateTimeOffsetReturn dateTimeOffsetReturn = TimeZoneExtractor.referenceDateExtractor(new Date(relationDateTimePropertiesOne.getParserOutput().getDateRange().getStart().getMillis()), configuration, relationDateTimePropertiesTwo.getParserOutput().getText());
           DateTime referenceDate = new DateTime( dateTimeOffsetReturn.getReferenceDate());
           relationDateTimePropertiesTwo.setReferenceTime(referenceDate);
